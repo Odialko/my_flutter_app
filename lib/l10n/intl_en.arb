@@ -1,0 +1,12 @@
+{
+    "@@x-loco-version": "1.0.25 20201230-1",
+    "@@locale": "en-GB",
+    "@@last_modified": "2021-02-22T16:54:39+0200",
+    "@@author": "odialco",
+    "hi_loco": "Hi Loco",
+    "@hi_loco": {
+        "type": "text",
+        "context": "test text",
+        "source_text": "Привіт Локо"
+    }
+}
