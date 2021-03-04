@@ -119,14 +119,38 @@ Future<void> _logProcessOutput(Future<Process> proc) async {
   }
 }
 
-// @Task()
-// test() => new TestRunner().testAsync();
-//
-// @DefaultTask()
-// @Depends(test)
-// build() {
-//   Pub.build();
-// }
-//
-// @Task()
-// clean() => defaultClean();
+
+@Task('Set platform flag')
+Future<void> platform() async {
+  TaskArgs args = context.invocation.arguments;
+
+  await _writePlatformFlags(args);
+}
+
+void _writePlatformFlags(TaskArgs args) async {
+  bool isWeb, isAndroid, isIOS = false;
+
+  //if --web then ignore the others
+  isWeb = args.getFlag('web') || false;
+  isAndroid = isWeb ? false : args.getFlag('android') || false;
+  isIOS = isWeb ? false : args.getFlag('ios') || false;
+
+  //default to --android
+  if (!isWeb && !isAndroid && !isIOS) {
+    log('No Platforms specified. Running with default set to --android ');
+    isAndroid = true;
+  }
+
+  final out = """
+/// Written by grinder Task run(). See tools/grind.dart
+import 'package:flutter/foundation.dart';
+const bool gWeb = kIsWeb;
+const bool gIOS = ${isIOS};
+const bool gAndroid = ${isAndroid};
+""";
+
+  File g = await File('lib/g.dart');
+  await g.writeAsString(out);
+
+  log('Platform constants updated in /lib/g.dart.');
+}
