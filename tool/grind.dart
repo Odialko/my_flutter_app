@@ -14,9 +14,7 @@ const _wrkDir = '.loco';
 const _locoZipFilename = 'loco.zip';
 const _l10nDir = 'lib/l10n';
 
-main(args) => grind(args);
-
-
+void main(List<String> args) => grind(args);
 
 /// Update l10n
 @Task('Update l10n files ')
@@ -46,7 +44,7 @@ Future<void> _downloadLanguages() async {
       .then((HttpClientResponse response) async {
     String workDirPath = await _getWorkingDir();
     String zipFilePath = await _getFilePath(workDirPath);
-    log('Downloading translations zip file to ${zipFilePath}');
+    // log('Downloading translations zip file to ${zipFilePath}');
 
     await response.pipe(File(zipFilePath).openWrite());
     await _unpack10nZip(zipFilePath);
@@ -72,7 +70,7 @@ Future<void> _cleanWorkingDir() async {
   var dir = Directory(_wrkDir);
 
   if (await dir.exists()) {
-    log('Deleteing working directory ${_wrkDir}');
+    // log('Deleteing working directory ${_wrkDir}');
     await dir.delete(recursive: true);
   }
 }
@@ -80,19 +78,19 @@ Future<void> _cleanWorkingDir() async {
 /// Create a filename for the downloaded Loco zip file
 Future<String> _getFilePath(String dirPath) async {
   final now = DateTime.now();
-  final fileName = '${now.year}${now.month}${now.day}_${_locoZipFilename}';
+  final fileName = '${now.year}${now.month}${now.day}_$_locoZipFilename';
 
   return path.join(dirPath, fileName);
 }
 
 /// Unzip the arb files from the Loco zip file
 Future<void> _unpack10nZip(String filePath) async {
-  log('Unzipping ${filePath}');
+  // log('Unzipping ${filePath}');
 
   final bytes = File(filePath).readAsBytesSync();
   final archive = ZipDecoder().decodeBytes(bytes);
 
-  var unpackedFileCount = 0;
+  // var unpackedFileCount = 0;
 
   for (final file in archive) {
     final archivedFilename = file.name;
@@ -100,15 +98,15 @@ Future<void> _unpack10nZip(String filePath) async {
       final data = file.content as List<int>;
       final fileName = path.split(archivedFilename).last;
 
-      log('Saving ${fileName} to ${_l10nDir}');
+      // log('Saving ${fileName} to ${_l10nDir}');
 
-      await File(path.join(_l10nDir, fileName))
+      File(path.join(_l10nDir, fileName))
         ..createSync(recursive: true)
         ..writeAsBytesSync(data);
-      unpackedFileCount++;
+      // unpackedFileCount++;
     }
   }
-  log('Unzipping complete. Unpacked ${unpackedFileCount} .arb files');
+  // log('Unzipping complete. Unpacked ${unpackedFileCount} .arb files');
 }
 
 Future<void> _logProcessOutput(Future<Process> proc) async {
@@ -124,7 +122,7 @@ Future<void> _logProcessOutput(Future<Process> proc) async {
 Future<void> platform() async {
   TaskArgs args = context.invocation.arguments;
 
-  await _writePlatformFlags(args);
+  _writePlatformFlags(args);
 }
 
 void _writePlatformFlags(TaskArgs args) async {
@@ -145,11 +143,11 @@ void _writePlatformFlags(TaskArgs args) async {
 /// Written by grinder Task run(). See tools/grind.dart
 import 'package:flutter/foundation.dart';
 const bool gWeb = kIsWeb;
-const bool gIOS = ${isIOS};
-const bool gAndroid = ${isAndroid};
+const bool gIOS = $isIOS;
+const bool gAndroid = $isAndroid;
 """;
 
-  File g = await File('lib/g.dart');
+  File g = File('lib/g.dart');
   await g.writeAsString(out);
 
   log('Platform constants updated in /lib/g.dart.');
