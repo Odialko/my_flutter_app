@@ -17,6 +17,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  pedantic: ^1.8.0
   grinder: ^0.8.6
   intl_translation: ^0.17.9
   intl: ^0.16.0
