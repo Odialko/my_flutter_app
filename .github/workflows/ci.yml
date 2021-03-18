@@ -3,8 +3,8 @@ on:
   pull_request:
     branches:
       - main
-    paths-ignore:
-      - "../player-mobile-bcvideo"
+#    paths-ignore:
+#      - "../player-mobile-bcvideo"
 
 
 jobs:
