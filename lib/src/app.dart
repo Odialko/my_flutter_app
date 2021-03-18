@@ -19,7 +19,7 @@ class _AndroidApp extends StatelessWidget implements App {
   Widget build(BuildContext context) {
     return MaterialApp(
         color: Colors.black,
-        title: "My Android flutter app",
+        title: "My Android flutter app test APK",
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [
           AppLocalizationDelegate(),
