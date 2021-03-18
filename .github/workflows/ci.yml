@@ -3,6 +3,8 @@ on:
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - "../player_mobile_bcvideo/**"
 
 jobs:
   flutter_test:
@@ -17,6 +19,7 @@ jobs:
         with:
           flutter-version: '1.22.6'
       - run: flutter pub get
+#        - igno
       - run: flutter analyze
       - run: flutter test
       - run: flutter build apk --debug
