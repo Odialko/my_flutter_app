@@ -14,6 +14,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.0
   player_mobile_bcvideo:
+    git:
+      url: git@gitlab.com:snapp-clients/bfi/player-mobile-bcvideo.git
       path: ../player-mobile-bcvideo/
 
 dev_dependencies:
