@@ -20,7 +20,7 @@ class AndroidTestovi extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'My Android flutter app',
+          'My Android flutter app  test APK',
           style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
         ),
       ),
