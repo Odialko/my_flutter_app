@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/generated/l10n.dart';
+import 'package:flutter_plugin_v1/flutter_plugin_v1.dart';
 
 // import '../g.dart';
 
@@ -20,7 +21,7 @@ class AndroidTestovi extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'My Android flutter app',
+          'My Android flutter app  test APK',
           style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
         ),
       ),
@@ -34,6 +35,10 @@ class AndroidTestovi extends StatelessWidget {
           ),
           Text(
             s.hi_loco,
+            style: TextStyle(fontSize: 32, color: Colors.deepOrange),
+          ),
+          Text(
+            FlutterPluginV1.testName,
             style: TextStyle(fontSize: 32, color: Colors.deepOrange),
           ),
         ],

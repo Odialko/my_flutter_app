@@ -16,7 +16,8 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '1.22.6'
-      - run: flutter pub get
-      - run: flutter analyze
-      - run: flutter test
-      - run: flutter build apk --debug
+      - run: sh ./scripts/flutter_pub_get.sh
+#      - run: flutter pub get
+#      - run: flutter analyze
+#      - run: flutter test
+#      - run: flutter build apk --debug
