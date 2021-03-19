@@ -18,7 +18,6 @@ dependencies:
     git:
       url: git@github.com:Odialko/plugin_v1.git
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
