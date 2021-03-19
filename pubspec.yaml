@@ -13,12 +13,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.0
-#  player_mobile_bcvideo:
+#  flutter_plugin_v1:
 #    git:
-#      url: git@gitlab.com:snapp-clients/bfi/player-mobile-bcvideo.git
-  flutter_plugin_v1:
-    git:
-      url: git@github.com:Odialko/plugin_v1.git
+#      url: git@github.com:Odialko/plugin_v1.git
 
 dev_dependencies:
   flutter_test:
