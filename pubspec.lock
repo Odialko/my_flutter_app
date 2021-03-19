@@ -137,6 +137,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_plugin_v1:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "848e616a40a27ea98a481a6ebf470169207e1ff4"
+      url: "git@github.com:Odialko/plugin_v1.git"
+    source: git
+    version: "0.0.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -261,15 +270,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
-  player_mobile_bcvideo:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "5bfb7ff87902ee02e972d5d784e9589fdd6c2fba"
-      url: "https://gitlab.com/snapp-clients/bfi/player-mobile-bcvideo.git"
-    source: git
-    version: "0.0.1"
   pub_semver:
     dependency: transitive
     description:
@@ -354,4 +354,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.10.0 <2.11.0"
-  flutter: ">=1.10.0"
+  flutter: ">=1.20.0"
