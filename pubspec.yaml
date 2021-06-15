@@ -13,9 +13,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.0
-#  flutter_plugin_v1:
-#    git:
-#      url: git@github.com:Odialko/plugin_v1.git
 
 dev_dependencies:
   flutter_test:
